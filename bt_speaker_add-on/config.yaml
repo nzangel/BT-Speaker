@@ -1,0 +1,28 @@
+name: "BT Speaker"
+version: "0.1.0"
+slug: "bt_speaker"
+description: "Bluetooth A2DP speaker controller"
+url: "https://github.com/nzangel/bt_speaker"
+arch: [aarch64, amd64, armhf, armv7]
+
+# Image Docker pré-construite (optionnel mais recommandé)
+# Si absent, HA compile le Dockerfile localement sur le Pi → très lent
+image: "ghcr.io/nzangel/bt-speaker-addon-{arch}"
+
+host_dbus: true
+host_network: true
+privileged: [NET_ADMIN, SYS_ADMIN]
+devices: [/dev/bus]
+
+ports:
+  "8765/tcp": 8765
+
+options:
+  speaker_mac: ""
+  auto_reconnect: true
+  poll_interval: 10
+
+schema:
+  speaker_mac: str
+  auto_reconnect: bool
+  poll_interval: int(1,60)

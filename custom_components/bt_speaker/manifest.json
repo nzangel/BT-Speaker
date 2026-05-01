@@ -1,0 +1,10 @@
+{
+  "domain": "bt_speaker",
+  "name": "BT Speaker",
+  "version": "0.1.0",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@ton_github"]
+}
