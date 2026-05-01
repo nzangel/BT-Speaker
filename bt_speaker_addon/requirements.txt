@@ -1,3 +1,6 @@
-dbus-fast>=2.21.0
+# dbus → géré par apt (python3-dbus), pas ici
+# aiohttp → pure Python, pas de compilation
 aiohttp>=3.9.0
-asyncio-mqtt>=0.16.0
+
+# asyncio-mqtt uniquement si tu utilises MQTT
+# asyncio-mqtt>=0.16.0
