@@ -2,6 +2,8 @@ name: Build & Publish Add-on
 
 on:
   push:
+    branches:
+      - main        # ← déclenché à chaque push sur main
     tags:
       - "v*"          # Déclenché sur : git tag v0.1.0 && git push --tags
 
