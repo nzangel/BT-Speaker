@@ -5,7 +5,7 @@ description: "Bluetooth A2DP speaker controller"
 url: "https://github.com/nzangel/BT_Speaker"
 arch: [aarch64, amd64, armhf, armv7]
 
-# Image Docker pré-construite (optionnel mais recommandé)
+# Image Docker pré-construite (optionnel mais recommandé)2
 # Si absent, HA compile le Dockerfile localement sur le Pi → très lent
 image: "ghcr.io/nzangel/BT-Speaker-addon-{arch}"
 
