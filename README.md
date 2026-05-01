@@ -7,7 +7,7 @@ Connect any Bluetooth A2DP speaker to Home Assistant.
 ### Add-on (required first)
 1. Go to **Settings → Add-ons → Add-on Store**
 2. Click ⋮ → **Repositories**
-3. Add: `https://github.com/nzangel/bt_speaker`
+3. Add: `https://github.com/nzangel/BT_Speaker`
 4. Install **BT Speaker** add-on and start it
 
 ### Integration (via HACS)
