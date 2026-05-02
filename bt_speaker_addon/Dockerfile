@@ -20,6 +20,7 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY app/ /app/
 
-# Structure s6-overlay
+# run.sh placé dans /etc/services.d/bt-speaker/run (structure s6 v3)
 COPY rootfs/ /
-RUN chmod +x /etc/s6-overlay/s6-rc.d/bt-speaker/run
+RUN chmod a+x /etc/services.d/bt-speaker/run \
+    && chmod a+x /etc/services.d/bt-speaker/finish

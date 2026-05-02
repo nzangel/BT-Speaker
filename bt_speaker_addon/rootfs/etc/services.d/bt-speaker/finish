@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bashio
+# Appelé quand le service s'arrête
+bashio::log.warning "BT Speaker s'est arrêté."
