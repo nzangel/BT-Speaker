@@ -6,7 +6,7 @@ url: "https://github.com/nzangel/BT_Speaker"
 arch: [aarch64, amd64, armhf, armv7]
 
 # Image Docker pré-construite (optionnel mais recommandé)
-# Si absent, HA compile le Dockerfile localement sur le Pi → très lent
+# Si absent, HA compile le Dockerfile localement sur le Pi → très lent2
 image: "ghcr.io/nzangel/bt-speaker-addon-{arch}"
 
 host_dbus: true
