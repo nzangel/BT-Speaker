@@ -1,11 +1,9 @@
-name: Build & Publish Add-on
+ame: Build & Publish Add-on
 
 on:
   push:
-    branches:
-      - main        # ← déclenché à chaque push sur main
     tags:
-      - "v*"          # Déclenché sur : git tag v0.1.0 && git push --tags
+      - "v*"
 
 jobs:
   build:
@@ -15,7 +13,7 @@ jobs:
       matrix:
         arch:
           - amd64
-          - aarch64    # Raspberry Pi 4 attention
+          - aarch64
           - armhf
           - armv7
 
@@ -36,7 +34,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract version
+      - name: Extraire la version sans le "v"
         id: version
         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
 
