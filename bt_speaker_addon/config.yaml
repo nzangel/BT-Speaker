@@ -1,5 +1,5 @@
 name: "BT Speaker"
-version: "0.2.4"
+version: "0.2.5"
 slug: "bt_speaker"
 description: "Bluetooth A2DP speaker controller"
 url: "https://github.com/nzangel/BT_Speaker"
