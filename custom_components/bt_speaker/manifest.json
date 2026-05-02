@@ -1,7 +1,7 @@
 {
   "domain": "bt_speaker",
   "name": "BT Speaker",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "config_flow": true,
   "iot_class": "local_polling",
   "requirements": [],
