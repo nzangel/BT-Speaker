@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/command/with-contenv bashio
 bashio::log.info "Démarrage BT Speaker..."
 
 SPEAKER_MAC=$(bashio::config 'speaker_mac')
