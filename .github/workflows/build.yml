@@ -49,7 +49,7 @@ jobs:
           push: true
           platforms: linux/${{ matrix.arch }}
           build-args: |
-            BUILD_FROM=ghcr.io/home-assistant/${{ matrix.arch }}-base-debian:bookworm
+            BUILD_FROM=ghcr.io/home-assistant/${{ matrix.arch }}-base:latest
           tags: |
             ghcr.io/${{ github.repository_owner }}/bt-speaker-addon-${{ matrix.arch }}:${{ steps.version.outputs.VERSION }}
             ghcr.io/${{ github.repository_owner }}/bt-speaker-addon-${{ matrix.arch }}:latest

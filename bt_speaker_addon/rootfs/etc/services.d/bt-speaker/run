@@ -1,15 +1,9 @@
 #!/usr/bin/with-contenv bashio
-# ==============================================================================
-# Démarrage du service BT Speaker
-# ==============================================================================
-bashio::log.info "Démarrage de BT Speaker..."
+bashio::log.info "Démarrage BT Speaker..."
 
-# Lecture des options
 SPEAKER_MAC=$(bashio::config 'speaker_mac')
 POLL_INTERVAL=$(bashio::config 'poll_interval')
 
-# PulseAudio
-bashio::log.info "Démarrage de PulseAudio..."
 mkdir -p /var/run/pulse
 pulseaudio --system \
     --disallow-exit \
@@ -18,10 +12,7 @@ pulseaudio --system \
     --exit-idle-time=-1 &
 
 sleep 2
-
 pactl load-module module-bluetooth-discover || true
 pactl load-module module-bluetooth-policy   || true
 
-# API Python
-bashio::log.info "Démarrage de l'API Python..."
 exec /opt/venv/bin/python3 /app/main.py
