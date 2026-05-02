@@ -2,6 +2,8 @@ name: Build & Publish Add-on
 
 on:
   push:
+    branches:
+      - main        # ← déclenché à chaque push sur main
     tags:
       - "v*"
 
