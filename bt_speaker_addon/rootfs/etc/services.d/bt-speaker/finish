@@ -1,2 +1,0 @@
-#!/command/with-contenv bashio
-bashio::log.warning "BT Speaker s'est arrêté."
