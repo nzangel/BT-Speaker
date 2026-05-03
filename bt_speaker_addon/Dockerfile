@@ -1,25 +1,35 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/base:latest
 FROM ${BUILD_FROM}
 
-# Paquets système : BlueZ + PulseAudio + Python
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Alpine utilise apk, pas apt-get
+RUN apk add --no-cache \
     bluez \
-    bluez-tools \
+    bluez-libs \
     pulseaudio \
-    pulseaudio-module-bluetooth \
+    pulseaudio-bluez \
     python3 \
-    python3-pip \
-    python3-dbus \
+    py3-pip \
+    py3-dbus \
+    py3-gobject3 \
     dbus \
-    && rm -rf /var/lib/apt/lists/*
+    gcc \
+    musl-dev \
+    dbus-dev \
+    pkgconfig \
+    glib-dev \
+    python3-dev \
+    libffi-dev
 
-# Bibliothèques Python
+# Venv pour isoler les dépendances pip
+RUN python3 -m venv /opt/venv --system-site-packages
+ENV PATH="/opt/venv/bin:$PATH"
+
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
 COPY requirements.txt /tmp/
-RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-# Code de l'add-on
 COPY app/ /app/
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
-
-CMD ["/run.sh"]
+COPY rootfs/ /
+RUN chmod a+x /etc/services.d/bt-speaker/run \
+    && chmod a+x /etc/services.d/bt-speaker/finish

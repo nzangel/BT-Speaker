@@ -1,32 +1,22 @@
 name: "BT Speaker"
-version: "0.2.7"
+version: "0.2.6"
 slug: "bt_speaker"
 description: "Bluetooth A2DP speaker controller"
+url: "https://github.com/nzangel/BT_Speaker"
 arch: [aarch64, amd64]
 
-# Accès au dbus de l'hôte (BlueZ)
+# Image Docker pré-construite (optionnel mais recommandé)
+# Si absent, HA compile le Dockerfile localement sur le Pi → très lent2
+image: "ghcr.io/nzangel/bt-speaker-addon-{arch}"
+
 host_dbus: true
-
-# Réseau hôte requis pour les sockets Bluetooth
 host_network: true
+privileged: [NET_ADMIN, SYS_ADMIN]
+devices: [/dev/bus]
 
-# Accès aux devices Bluetooth du système
-devices:
-  - /dev/bus
-
-# Capacités Linux nécessaires
-privileged:
-  - NET_ADMIN
-  - SYS_ADMIN
-
-# Port exposé pour l'API REST (consommée par l'intégration custom)
 ports:
-  8765/tcp: 8765
+  "8765/tcp": 8765
 
-ports_description:
-  8765/tcp: "API REST interne"
-
-# Options configurables depuis l'UI HA
 options:
   speaker_mac: ""
   auto_reconnect: true
