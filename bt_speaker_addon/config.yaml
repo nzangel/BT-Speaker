@@ -7,7 +7,7 @@ arch: [aarch64, amd64]
 
 # Image Docker pré-construite (optionnel mais recommandé)
 # Si absent, HA compile le Dockerfile localement sur le Pi → très lent2
-image: "ghcr.io/nzangel/bt-speaker-addon-{arch}"
+# image: "ghcr.io/nzangel/bt-speaker-addon-{arch}"
 
 host_dbus: true
 host_network: true
