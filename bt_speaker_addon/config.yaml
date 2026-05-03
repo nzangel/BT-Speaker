@@ -1,5 +1,5 @@
 name: "BT Speaker"
-version: "0.1.0"
+version: "0.2.7"
 slug: "bt_speaker"
 description: "Bluetooth A2DP speaker controller"
 arch: [aarch64, amd64]
